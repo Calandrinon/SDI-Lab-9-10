@@ -3,18 +3,10 @@ package ro.ubb.catalog.core.model;
 import lombok.ToString;
 import org.hibernate.annotations.Check;
 import org.springframework.transaction.annotation.Transactional;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.function.BiFunction;
-import java.util.function.Function;
 
 @Entity
 @Transactional

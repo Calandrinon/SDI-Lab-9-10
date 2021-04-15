@@ -11,12 +11,12 @@ import ro.ubb.catalog.core.exceptions.ValidationException;
 import ro.ubb.catalog.core.model.Record;
 import ro.ubb.catalog.core.model.*;
 import ro.ubb.catalog.core.repository.*;
-import ro.ubb.catalog.web.converter.RecordConverter;
-import ro.ubb.catalog.web.converter.TransactionConverter;
-import ro.ubb.catalog.web.dto.RecordsDto;
-import ro.ubb.catalog.web.dto.TransactionDto;
-import ro.ubb.catalog.web.dto.TransactionMapDto;
-import ro.ubb.catalog.web.dto.TransactionsDto;
+import ro.ubb.catalog.core.converter.RecordConverter;
+import ro.ubb.catalog.core.converter.TransactionConverter;
+import ro.ubb.catalog.core.dto.RecordsDto;
+import ro.ubb.catalog.core.dto.TransactionDto;
+import ro.ubb.catalog.core.dto.TransactionMapDto;
+import ro.ubb.catalog.core.dto.TransactionsDto;
 
 import java.sql.SQLException;
 import java.text.ParseException;

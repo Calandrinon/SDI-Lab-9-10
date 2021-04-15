@@ -1,15 +1,10 @@
 package ro.ubb.catalog.core.model;
 
 import lombok.ToString;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.function.BiFunction;
-import java.util.function.Function;
 
 @Entity
 @ToString(callSuper = true)

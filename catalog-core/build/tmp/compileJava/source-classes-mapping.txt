@@ -1,35 +1,73 @@
+ro/ubb/catalog/core/dto/TransactionMapDto.java
+ ro.ubb.catalog.core.dto.TransactionMapDto
+ro/ubb/catalog/core/converter/Converter.java
+ ro.ubb.catalog.core.converter.Converter
 ro/ubb/catalog/core/validator/UserValidator.java
  ro.ubb.catalog.core.validator.UserValidator
-ro/ubb/catalog/core/repository/JPAUserRepository.java
- ro.ubb.catalog.core.repository.JPAUserRepository
-ro/ubb/catalog/core/model/User.java
- ro.ubb.catalog.core.model.User
 ro/ubb/catalog/core/model/Transaction.java
  ro.ubb.catalog.core.model.Transaction
-ro/ubb/catalog/core/validator/Validator.java
- ro.ubb.catalog.core.validator.Validator
+ro/ubb/catalog/core/dto/UserDto.java
+ ro.ubb.catalog.core.dto.UserDto
 ro/ubb/catalog/core/validator/TransactionValidator.java
  ro.ubb.catalog.core.validator.TransactionValidator
-ro/ubb/catalog/core/validator/RecordValidator.java
- ro.ubb.catalog.core.validator.RecordValidator
 ro/ubb/catalog/core/model/Record.java
  ro.ubb.catalog.core.model.Record
-ro/ubb/catalog/core/repository/Repository.java
- ro.ubb.catalog.core.repository.Repository
-ro/ubb/catalog/core/exceptions/ValidationException.java
- ro.ubb.catalog.core.exceptions.ValidationException
+ro/ubb/catalog/core/converter/RecordConverter.java
+ ro.ubb.catalog.core.converter.RecordConverter
 ro/ubb/catalog/core/model/RecordType.java
  ro.ubb.catalog.core.model.RecordType
-ro/ubb/catalog/core/config/CoreConfig.java
- ro.ubb.catalog.core.config.CoreConfig
-ro/ubb/catalog/core/validator/BaseEntityValidator.java
- ro.ubb.catalog.core.validator.BaseEntityValidator
+ro/ubb/catalog/core/exceptions/ValidationException.java
+ ro.ubb.catalog.core.exceptions.ValidationException
+ro/ubb/catalog/core/dto/RecordsDto.java
+ ro.ubb.catalog.core.dto.RecordsDto
+ro/ubb/catalog/core/dto/UsersDto.java
+ ro.ubb.catalog.core.dto.UsersDto
+ro/ubb/catalog/core/config/CacheConfig.java
+ ro.ubb.catalog.core.config.CacheConfig
+ ro.ubb.catalog.core.config.CacheConfig$CustomRemovalListener
 ro/ubb/catalog/core/repository/JPATransactionRepository.java
  ro.ubb.catalog.core.repository.JPATransactionRepository
-ro/ubb/catalog/core/repository/JPARecordRepository.java
- ro.ubb.catalog.core.repository.JPARecordRepository
+ro/ubb/catalog/core/dto/TransactionDto.java
+ ro.ubb.catalog.core.dto.TransactionDto
+ ro.ubb.catalog.core.dto.TransactionDto$TransactionDtoBuilder
 ro/ubb/catalog/core/exceptions/TransactionException.java
  ro.ubb.catalog.core.exceptions.TransactionException
+ro/ubb/catalog/core/service/UserService.java
+ ro.ubb.catalog.core.service.UserService
+ro/ubb/catalog/core/service/RecordService.java
+ ro.ubb.catalog.core.service.RecordService
+ro/ubb/catalog/core/repository/JPAUserRepository.java
+ ro.ubb.catalog.core.repository.JPAUserRepository
+ro/ubb/catalog/core/dto/RecordDto.java
+ ro.ubb.catalog.core.dto.RecordDto
+ro/ubb/catalog/core/model/User.java
+ ro.ubb.catalog.core.model.User
+ro/ubb/catalog/core/validator/Validator.java
+ ro.ubb.catalog.core.validator.Validator
+ro/ubb/catalog/core/converter/BaseConverter.java
+ ro.ubb.catalog.core.converter.BaseConverter
+ro/ubb/catalog/core/validator/RecordValidator.java
+ ro.ubb.catalog.core.validator.RecordValidator
+ro/ubb/catalog/core/dto/BaseEntityDto.java
+ ro.ubb.catalog.core.dto.BaseEntityDto
+ro/ubb/catalog/core/repository/Repository.java
+ ro.ubb.catalog.core.repository.Repository
+ro/ubb/catalog/core/service/TransactionService.java
+ ro.ubb.catalog.core.service.TransactionService
+ro/ubb/catalog/core/dto/TransactionsDto.java
+ ro.ubb.catalog.core.dto.TransactionsDto
+ro/ubb/catalog/core/converter/TransactionConverter.java
+ ro.ubb.catalog.core.converter.TransactionConverter
+ro/ubb/catalog/core/converter/UserConverter.java
+ ro.ubb.catalog.core.converter.UserConverter
+ro/ubb/catalog/core/validator/BaseEntityValidator.java
+ ro.ubb.catalog.core.validator.BaseEntityValidator
+ro/ubb/catalog/core/repository/JPARecordRepository.java
+ ro.ubb.catalog.core.repository.JPARecordRepository
+ro/ubb/catalog/core/dto/BaseDto.java
+ ro.ubb.catalog.core.dto.BaseDto
+ro/ubb/catalog/core/dto/EmptyJsonResponse.java
+ ro.ubb.catalog.core.dto.EmptyJsonResponse
 ro/ubb/catalog/core/config/JPAConfig.java
  ro.ubb.catalog.core.config.JPAConfig
 ro/ubb/catalog/core/model/BaseEntity.java

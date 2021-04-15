@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import ro.ubb.catalog.core.exceptions.*;
 import ro.ubb.catalog.core.model.*;
 import ro.ubb.catalog.core.repository.*;
-import ro.ubb.catalog.web.converter.UserConverter;
-import ro.ubb.catalog.web.dto.UserDto;
-import ro.ubb.catalog.web.dto.UsersDto;
+import ro.ubb.catalog.core.converter.UserConverter;
+import ro.ubb.catalog.core.dto.UserDto;
+import ro.ubb.catalog.core.dto.UsersDto;
 
 import java.net.URI;
 import java.net.URISyntaxException;

@@ -4,6 +4,8 @@ import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import ro.ubb.catalog.core.config.JPAConfig;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Configuration
 @ComponentScan({"ro.ubb.catalog.core"})
@@ -11,7 +13,6 @@ import ro.ubb.catalog.core.config.JPAConfig;
 @PropertySources({@PropertySource(value = "classpath:local/db.properties"),
 })
 public class AppLocalConfig {
-
     /**
      * Enables placeholders usage with SpEL expressions.
      *
@@ -20,5 +21,10 @@ public class AppLocalConfig {
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
+    }
+
+    @Bean
+    ExecutorService executor(){
+        return Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
     }
 }

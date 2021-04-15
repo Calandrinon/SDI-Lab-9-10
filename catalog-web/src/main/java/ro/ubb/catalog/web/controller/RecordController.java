@@ -23,9 +23,9 @@ import java.util.stream.StreamSupport;
 
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
-import ro.ubb.catalog.web.converter.RecordConverter;
-import ro.ubb.catalog.web.dto.RecordDto;
-import ro.ubb.catalog.web.dto.RecordsDto;
+import ro.ubb.catalog.core.converter.RecordConverter;
+import ro.ubb.catalog.core.dto.RecordDto;
+import ro.ubb.catalog.core.dto.RecordsDto;
 
 @RestController
 public class RecordController /*implements RecordControllerInterface*/ {
