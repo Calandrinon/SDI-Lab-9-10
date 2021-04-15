@@ -1,0 +1,16 @@
+ro/ubb/catalog/client/ui/UI.java
+ ro.ubb.catalog.client.ui.UI
+ro/ubb/catalog/client/service/TransactionService.java
+ ro.ubb.catalog.client.service.TransactionService
+ro/ubb/catalog/client/ui/AdminUI.java
+ ro.ubb.catalog.client.ui.AdminUI
+ro/ubb/catalog/client/service/RecordService.java
+ ro.ubb.catalog.client.service.RecordService
+ro/ubb/catalog/client/ClientApp.java
+ ro.ubb.catalog.client.ClientApp
+ro/ubb/catalog/client/service/UserService.java
+ ro.ubb.catalog.client.service.UserService
+ro/ubb/catalog/client/config/ClientConfig.java
+ ro.ubb.catalog.client.config.ClientConfig
+ro/ubb/catalog/client/ui/ClientUI.java
+ ro.ubb.catalog.client.ui.ClientUI

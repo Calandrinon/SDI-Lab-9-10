@@ -1,0 +1,36 @@
+ro/ubb/catalog/core/validator/UserValidator.java
+ ro.ubb.catalog.core.validator.UserValidator
+ro/ubb/catalog/core/repository/JPAUserRepository.java
+ ro.ubb.catalog.core.repository.JPAUserRepository
+ro/ubb/catalog/core/model/User.java
+ ro.ubb.catalog.core.model.User
+ro/ubb/catalog/core/model/Transaction.java
+ ro.ubb.catalog.core.model.Transaction
+ro/ubb/catalog/core/validator/Validator.java
+ ro.ubb.catalog.core.validator.Validator
+ro/ubb/catalog/core/validator/TransactionValidator.java
+ ro.ubb.catalog.core.validator.TransactionValidator
+ro/ubb/catalog/core/validator/RecordValidator.java
+ ro.ubb.catalog.core.validator.RecordValidator
+ro/ubb/catalog/core/model/Record.java
+ ro.ubb.catalog.core.model.Record
+ro/ubb/catalog/core/repository/Repository.java
+ ro.ubb.catalog.core.repository.Repository
+ro/ubb/catalog/core/exceptions/ValidationException.java
+ ro.ubb.catalog.core.exceptions.ValidationException
+ro/ubb/catalog/core/model/RecordType.java
+ ro.ubb.catalog.core.model.RecordType
+ro/ubb/catalog/core/config/CoreConfig.java
+ ro.ubb.catalog.core.config.CoreConfig
+ro/ubb/catalog/core/validator/BaseEntityValidator.java
+ ro.ubb.catalog.core.validator.BaseEntityValidator
+ro/ubb/catalog/core/repository/JPATransactionRepository.java
+ ro.ubb.catalog.core.repository.JPATransactionRepository
+ro/ubb/catalog/core/repository/JPARecordRepository.java
+ ro.ubb.catalog.core.repository.JPARecordRepository
+ro/ubb/catalog/core/exceptions/TransactionException.java
+ ro.ubb.catalog.core.exceptions.TransactionException
+ro/ubb/catalog/core/config/JPAConfig.java
+ ro.ubb.catalog.core.config.JPAConfig
+ro/ubb/catalog/core/model/BaseEntity.java
+ ro.ubb.catalog.core.model.BaseEntity
