@@ -9,6 +9,9 @@ import {StudentDetailComponent} from "./students/student-detail/student-detail.c
 import {StudentsComponent} from "./students/students.component";
 import {StudentListComponent} from "./students/student-list/student-list.component";
 import {StudentService} from "./students/shared/student.service";
+import { RecordsComponent } from './records/records.component';
+import { UsersComponent } from './users/users.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 
 @NgModule({
@@ -17,6 +20,9 @@ import {StudentService} from "./students/shared/student.service";
     StudentDetailComponent,
     StudentsComponent,
     StudentListComponent,
+    RecordsComponent,
+    UsersComponent,
+    TransactionsComponent,
 
 
 
