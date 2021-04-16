@@ -1,0 +1,8 @@
+<h2>Add a new record</h2>
+<div>
+  <label>Album name: <input #albumNameInput></label><br>
+  <label>Price: <input #priceInput></label><br>
+  <label>Stock: <input #stockInput></label><br>
+  <label>Record type: <input #typeInput></label><br>
+  <button (click)="saveRecord(albumNameInput.value, priceInput.value, stockInput.value, typeInput.value)">Add</button>
+</div>

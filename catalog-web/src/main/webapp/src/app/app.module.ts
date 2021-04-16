@@ -5,24 +5,28 @@ import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from "./app-routing.module";
-import {StudentDetailComponent} from "./students/student-detail/student-detail.component";
-import {StudentsComponent} from "./students/students.component";
-import {StudentListComponent} from "./students/student-list/student-list.component";
-import {StudentService} from "./students/shared/student.service";
 import { RecordsComponent } from './records/records.component';
 import { UsersComponent } from './users/users.component';
 import { TransactionsComponent } from './transactions/transactions.component';
+import { RecordsListComponent } from './records/records-list/records-list.component';
+import { TransactionsListComponent } from './transactions/transactions-list/transactions-list.component';
+import { UsersListComponent } from './users/users-list/users-list.component';
+import {RecordService} from "./records/shared/record.service";
+import {UserService} from "./users/shared/users.service";
+import {TransactionService} from "./transactions/shared/transaction.service";
+import { RecordsAddComponent } from './records/records-add/records-add.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentDetailComponent,
-    StudentsComponent,
-    StudentListComponent,
     RecordsComponent,
     UsersComponent,
     TransactionsComponent,
+    RecordsListComponent,
+    TransactionsListComponent,
+    UsersListComponent,
+    RecordsAddComponent,
 
 
 
@@ -33,7 +37,7 @@ import { TransactionsComponent } from './transactions/transactions.component';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [StudentService],
+  providers: [RecordService, UserService, TransactionService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

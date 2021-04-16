@@ -1,5 +1,5 @@
-ro/ubb/catalog/web/controller/TransactionController.java
- ro.ubb.catalog.web.controller.TransactionController
+ro/ubb/catalog/web/config/Initializer.java
+ ro.ubb.catalog.web.config.Initializer
 ro/ubb/catalog/web/config/WebConfig.java
  ro.ubb.catalog.web.config.WebConfig
  ro.ubb.catalog.web.config.WebConfig$1
@@ -7,7 +7,7 @@ ro/ubb/catalog/web/controller/UserController.java
  ro.ubb.catalog.web.controller.UserController
 ro/ubb/catalog/web/config/AppLocalConfig.java
  ro.ubb.catalog.web.config.AppLocalConfig
-ro/ubb/catalog/web/config/Initializer.java
- ro.ubb.catalog.web.config.Initializer
+ro/ubb/catalog/web/controller/TransactionController.java
+ ro.ubb.catalog.web.controller.TransactionController
 ro/ubb/catalog/web/controller/RecordController.java
  ro.ubb.catalog.web.controller.RecordController
