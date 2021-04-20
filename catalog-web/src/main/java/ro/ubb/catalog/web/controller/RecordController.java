@@ -50,6 +50,7 @@ public class RecordController /*implements RecordControllerInterface*/ {
     // @Override
     @RequestMapping(value = "/record", method = RequestMethod.POST)
     public ResponseEntity<RecordDto> add(@RequestBody RecordDto record) throws Exception {
+        logger.atDebug().log("RECORD WITH THE ID " + record.getId() + "HAS BEEN ADDED");
         return CompletableFuture.supplyAsync(() -> {
             this.recordRepository.save(this.recordConverter.convertDtoToModel(record));
             try {
@@ -64,6 +65,7 @@ public class RecordController /*implements RecordControllerInterface*/ {
     // @Override
     @RequestMapping(value = "/record/{id}", method = RequestMethod.PUT)
     public ResponseEntity<RecordDto> update(@PathVariable Integer id, @RequestBody RecordDto record) throws ExecutionException, InterruptedException {
+        logger.atDebug().log("RECORD WITH THE ID " + id + " HAS BEEN UPDATED");
         return CompletableFuture.supplyAsync(() -> {
 
             Record r = this.recordConverter.convertDtoToModel(record);
@@ -92,6 +94,7 @@ public class RecordController /*implements RecordControllerInterface*/ {
     // @Override
     @RequestMapping(value = "/record/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Integer> remove(@PathVariable Integer id) throws ExecutionException, InterruptedException {
+        logger.atDebug().log("RECORD WITH THE ID " + id + "HAS BEEN REMOVED");
         return CompletableFuture.supplyAsync(() -> {
             Record record = new Record();
             record.setId(id);
@@ -120,8 +123,8 @@ public class RecordController /*implements RecordControllerInterface*/ {
     // @Override
     @RequestMapping(value = "/records")
     public RecordsDto getRepository() throws ExecutionException, InterruptedException {
-        logger.atDebug().log("repository accessed");
-        logger.info("repo accessed");
+        logger.atDebug().log("RECORD: GET REPOSITORY");
+        logger.info("RECORD: GET REPOSITORY");
 
         return new RecordsDto(CompletableFuture.supplyAsync(() -> {
             return this.recordRepository.findAll();
@@ -137,7 +140,7 @@ public class RecordController /*implements RecordControllerInterface*/ {
     // @Override
     @GetMapping("/recordFilter/{maximumPrice}")
     public RecordsDto filterByPrice(@PathVariable int maximumPrice) throws SQLException, ExecutionException, InterruptedException {
-        logger.atDebug().log("repository accessed");
+        logger.atDebug().log("RECORD: FILTER BY PRICE");
 
         return new RecordsDto(CompletableFuture.supplyAsync(() -> {
             return this.recordRepository.findByPriceLessThanEqual(maximumPrice);
@@ -147,7 +150,7 @@ public class RecordController /*implements RecordControllerInterface*/ {
 
     @RequestMapping("/greaterThan/{minimumInStock}")
     public RecordsDto filterByRecordsWithInStockGreaterThan(@PathVariable int minimumInStock) throws ExecutionException, InterruptedException {
-        logger.atDebug().log("repository accessed");
+        logger.atDebug().log("RECORD: FILTER BY INSTANCES IN STOCK");
 
         return new RecordsDto(CompletableFuture.supplyAsync(() -> {
             return this.recordRepository.findByInStockGreaterThan(minimumInStock);

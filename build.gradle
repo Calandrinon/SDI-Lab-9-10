@@ -18,9 +18,6 @@ allprojects {
 //        jdbcpostgreSqlVersion = '9.1-901.jdbc4'
         dbcpVersion = '2.2.0'
 
-        slf4jVersion = '1.7.25'
-        log4jVersion = '2.10.0'
-
         springDataVersion = '2.0.3.RELEASE'
 //        hibernateVersion = '5.2.10.Final'
 //        hibernateVersion = '5.2.13.Final'

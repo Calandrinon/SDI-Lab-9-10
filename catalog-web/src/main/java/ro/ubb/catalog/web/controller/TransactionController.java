@@ -58,6 +58,7 @@ public class TransactionController {
     // @Override
     @RequestMapping(value = "/transaction", method = RequestMethod.POST)
     public ResponseEntity<TransactionDto> makeTransaction(@RequestBody TransactionDto transactionDto) throws ExecutionException, InterruptedException {
+        logger.atDebug().log("TRANSACTION WITH THE ID " + transactionDto.getId() + "HAS BEEN SAVED");
         return CompletableFuture.supplyAsync(() ->
         {
             Integer userID = transactionDto.getUserID();
@@ -102,9 +103,7 @@ public class TransactionController {
     // @Override
     @RequestMapping(value = "/transaction/{userID}")
     public TransactionMapDto getRecordsByUser(@PathVariable Integer userID) throws ExecutionException, InterruptedException {
-        logger.atDebug()
-                .addKeyValue("userID", userID)
-                .log("requested records for a user");
+        logger.atDebug().log("TRANSACTION: GET RECORDS BY USER WITH THE ID " + userID);
 
         return CompletableFuture.supplyAsync(() -> {
             User user = new User();
@@ -124,7 +123,7 @@ public class TransactionController {
     // @Override
     @RequestMapping("/transactions")
     public TransactionsDto getRepository() throws ExecutionException, InterruptedException {
-        logger.atDebug().log("requested repository");
+        logger.atDebug().log("TRANSACTION: GET REPOSITORY");
 
         return new TransactionsDto(CompletableFuture.supplyAsync(() -> {
             return transactionRepository.findAll();
@@ -140,7 +139,8 @@ public class TransactionController {
     // @Override
     @GetMapping("/datefilter/{date}")
     public TransactionsDto filterByDate(@PathVariable String date) throws ExecutionException, InterruptedException, ParseException {
-        logger.atDebug().log("requested repository");
+        logger.atDebug().log("TRANSACTION: FILTER BY DATE");
+        logger.atDebug().log("TRANSACTION: requested repository");
         logger.atDebug().log("=================:" + date + ":=================");
         Date actualDate = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy").parse(date);
 
@@ -182,6 +182,8 @@ public class TransactionController {
     // @Override
     @RequestMapping(value = "/mostpurchased")
     public ResponseEntity<Record> getMostPurchasedRecords() throws ExecutionException, InterruptedException {
+        logger.atDebug().log("TRANSACTION: GET MOST PURCHASED RECORDS");
+
         return ResponseEntity.ok(CompletableFuture.supplyAsync(() -> {
             return this.recordRepository.findAll().stream()
                     .max(Comparator.comparingInt(r -> getTotalPurchasedByID(r.getId())));

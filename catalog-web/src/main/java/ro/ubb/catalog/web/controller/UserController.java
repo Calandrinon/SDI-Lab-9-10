@@ -50,6 +50,8 @@ public class UserController {
     // @Override
     @PostMapping("/user")
     public ResponseEntity<UserDto> add(@RequestBody UserDto userDto) throws ExecutionException, InterruptedException {
+        logger.atDebug().log("USER WITH THE ID " + userDto.getId() + " HAS BEEN ADDED.");
+
         return CompletableFuture.supplyAsync(() -> {
             User user = this.userConverter.convertDtoToModel(userDto);
             this.userRepository.save(user);
@@ -68,6 +70,8 @@ public class UserController {
     // @Override
     @PutMapping("/user/{id}")
     public ResponseEntity<UserDto> update(@PathVariable Integer id, @RequestBody UserDto userDto) throws ExecutionException, InterruptedException {
+        logger.atDebug().log("USER WITH THE ID " + userDto.getId() + " HAS BEEN UPDATED.");
+
         return CompletableFuture.supplyAsync(() -> {
             User user = this.userConverter.convertDtoToModel(userDto);
             user.setId(id);
@@ -86,6 +90,8 @@ public class UserController {
     // @Override
     @DeleteMapping("/user/{id}")
     public ResponseEntity<Integer> remove(@PathVariable Integer id) throws Exception {
+        logger.atDebug().log("USER WITH THE ID " + id + " HAS BEEN REMOVED.");
+
         return CompletableFuture.supplyAsync(() -> {
             User user = new User();
             user.setId(id);
@@ -104,6 +110,7 @@ public class UserController {
     // @Override
     @RequestMapping("/users")
     public UsersDto getRepository() throws ExecutionException, InterruptedException {
+        logger.atDebug().log("USER: GET REPOSITORY");
         logger.atDebug().log("requested repository");
 
         return new UsersDto(CompletableFuture.supplyAsync(() -> {
@@ -121,6 +128,8 @@ public class UserController {
     // @Override
     @RequestMapping("/userFilter/{minimumNumberOfTransactions}")
     public UsersDto filterByNumberOfTransactions(@PathVariable Integer minimumNumberOfTransactions) throws ExecutionException, InterruptedException {
+        logger.atDebug().log("USER: FILTER BY NUMBER OF TRANSACTIONS");
+
         return new UsersDto(CompletableFuture.supplyAsync(() -> {
             return this.userRepository.findByNumberOfTransactionsGreaterThanEqual(minimumNumberOfTransactions);
         }, this.executor).get().stream().map(e -> this.userConverter.convertModelToDto(e)).collect(Collectors.toSet()));
@@ -135,6 +144,8 @@ public class UserController {
     // @Override
     @GetMapping("/existUser/{userID}")
      public ResponseEntity<Boolean> exists(@PathVariable Integer userID) throws ExecutionException, InterruptedException {
+        logger.atDebug().log("USER: EXISTS METHOD CALLED");
+
         return ResponseEntity.ok(CompletableFuture.supplyAsync(() -> {
             return this.userRepository.findOne(userID).isPresent();
         }, this.executor).get());
