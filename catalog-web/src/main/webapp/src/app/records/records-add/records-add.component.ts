@@ -14,7 +14,7 @@ export class RecordsAddComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  saveRecord(albumName: string, price: string, stock: string, type: string): void {
+  saveRecord(id: string, albumName: string, price: string, stock: string, type: string): void {
     let recordType: RecordType;
 
     switch(type.toUpperCase()) {
@@ -23,7 +23,7 @@ export class RecordsAddComponent implements OnInit {
       case 'TAPE': recordType = RecordType.TAPE; break;
     }
 
-    const record: Record = <Record>{albumName, price: +price, inStock: +stock, typeOfRecord: recordType};
+    const record: Record = <Record>{id: +id, albumName, price: +price, inStock: +stock, typeOfRecord: recordType};
     console.log("The record instance: ", record);
     this.recordService.saveRecord(record)
       .subscribe(record => console.log("The added record: ", record));
