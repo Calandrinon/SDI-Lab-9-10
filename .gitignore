@@ -1,1 +1,3 @@
-*.war
+.gradle/*
+catalog-web/build/*
+catalog-core/build/*

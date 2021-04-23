@@ -7,7 +7,6 @@ import { Record } from "./shared/record.model";
   styleUrls: ['./records.component.css']
 })
 export class RecordsComponent implements OnInit {
-  record = Record;
 
   constructor() { }
 
