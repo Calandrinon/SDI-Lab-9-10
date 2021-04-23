@@ -23,6 +23,8 @@ import java.util.stream.StreamSupport;
 
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
+import ro.ubb.catalog.core.service.RecordService;
+import ro.ubb.catalog.core.service.TransactionService;
 import ro.ubb.catalog.core.converter.RecordConverter;
 import ro.ubb.catalog.core.dto.RecordDto;
 import ro.ubb.catalog.core.dto.RecordsDto;
@@ -31,7 +33,7 @@ import ro.ubb.catalog.core.dto.RecordsDto;
 public class RecordController /*implements RecordControllerInterface*/ {
 
     @Autowired
-    private JPARecordRepository recordRepository;
+    private RecordService recordService;
     @Autowired
     private ExecutorService executor;
     @Autowired
@@ -50,9 +52,8 @@ public class RecordController /*implements RecordControllerInterface*/ {
     // @Override
     @RequestMapping(value = "/record", method = RequestMethod.POST)
     public ResponseEntity<RecordDto> add(@RequestBody RecordDto record) throws Exception {
-        logger.atDebug().log("RECORD WITH THE ID " + record.getId() + "HAS BEEN ADDED");
         return CompletableFuture.supplyAsync(() -> {
-            this.recordRepository.save(this.recordConverter.convertDtoToModel(record));
+            this.recordService.addRecord(this.recordConverter.convertDtoToModel(record));
             try {
                 return ResponseEntity.created(new URI("/record/" + record.getId())).body(record);
             } catch (URISyntaxException e) {
@@ -65,12 +66,11 @@ public class RecordController /*implements RecordControllerInterface*/ {
     // @Override
     @RequestMapping(value = "/record/{id}", method = RequestMethod.PUT)
     public ResponseEntity<RecordDto> update(@PathVariable Integer id, @RequestBody RecordDto record) throws ExecutionException, InterruptedException {
-        logger.atDebug().log("RECORD WITH THE ID " + id + " HAS BEEN UPDATED");
         return CompletableFuture.supplyAsync(() -> {
 
             Record r = this.recordConverter.convertDtoToModel(record);
             r.setId(id);
-            this.recordRepository.save(r);
+            this.recordService.updateRecord(r);
             return ResponseEntity.ok(record);
         }, this.executor).get();
 
@@ -94,11 +94,8 @@ public class RecordController /*implements RecordControllerInterface*/ {
     // @Override
     @RequestMapping(value = "/record/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Integer> remove(@PathVariable Integer id) throws ExecutionException, InterruptedException {
-        logger.atDebug().log("RECORD WITH THE ID " + id + "HAS BEEN REMOVED");
         return CompletableFuture.supplyAsync(() -> {
-            Record record = new Record();
-            record.setId(id);
-            this.recordRepository.delete(record);
+            this.recordService.removeRecord(id);
             return ResponseEntity.ok(id);
         }, this.executor).get();
     }
@@ -110,7 +107,7 @@ public class RecordController /*implements RecordControllerInterface*/ {
      */
 
     public String getRecordByID(Integer recordID) throws SQLException {
-        return this.recordRepository.getOne(recordID).toString();
+        return this.recordService.getOne(recordID).toString();
     }
 
     /**
@@ -123,11 +120,11 @@ public class RecordController /*implements RecordControllerInterface*/ {
     // @Override
     @RequestMapping(value = "/records")
     public RecordsDto getRepository() throws ExecutionException, InterruptedException {
-        logger.atDebug().log("RECORD: GET REPOSITORY");
-        logger.info("RECORD: GET REPOSITORY");
+        logger.atDebug().log("repository accessed");
+        logger.info("repo accessed");
 
         return new RecordsDto(CompletableFuture.supplyAsync(() -> {
-            return this.recordRepository.findAll();
+            return this.recordService.getAll();
         }, this.executor).get().stream().map(e -> this.recordConverter.convertModelToDto(e)).collect(Collectors.toSet()));
     }
 
@@ -140,20 +137,32 @@ public class RecordController /*implements RecordControllerInterface*/ {
     // @Override
     @GetMapping("/recordFilter/{maximumPrice}")
     public RecordsDto filterByPrice(@PathVariable int maximumPrice) throws SQLException, ExecutionException, InterruptedException {
-        logger.atDebug().log("RECORD: FILTER BY PRICE");
+        logger.atDebug().log("repository accessed");
 
         return new RecordsDto(CompletableFuture.supplyAsync(() -> {
-            return this.recordRepository.findByPriceLessThanEqual(maximumPrice);
+            return this.recordService.filterByPrice(maximumPrice);
         }, this.executor).get().stream().map(e -> this.recordConverter.convertModelToDto(e)).collect(Collectors.toSet()));
     }
 
 
     @RequestMapping("/greaterThan/{minimumInStock}")
     public RecordsDto filterByRecordsWithInStockGreaterThan(@PathVariable int minimumInStock) throws ExecutionException, InterruptedException {
-        logger.atDebug().log("RECORD: FILTER BY INSTANCES IN STOCK");
+        logger.atDebug().log("repository accessed");
 
         return new RecordsDto(CompletableFuture.supplyAsync(() -> {
-            return this.recordRepository.findByInStockGreaterThan(minimumInStock);
-        }, this.executor).get().stream().map(e -> this.recordConverter.convertModelToDto(e)).collect(Collectors.toSet()));
+            return this.recordService.filterByRecordsWithInStockGreaterThan(minimumInStock);
+        }, this.executor)
+                .get().stream().map(e -> this.recordConverter.convertModelToDto(e)).collect(Collectors.toSet()));
+    }
+
+
+    @RequestMapping("/sortedByPrice")
+    public RecordsDto getAllRecordsSortedByPriceAscendingly() throws ExecutionException, InterruptedException {
+        logger.info("RecordController: Get all records sorted by price ascendingly");
+
+        return new RecordsDto(CompletableFuture.supplyAsync(() -> {
+            return this.recordService.getAllSortedByPriceAscendingly();
+        }, this.executor)
+                .get().stream().map(e -> this.recordConverter.convertModelToDto(e)).collect(Collectors.toList()));
     }
 }

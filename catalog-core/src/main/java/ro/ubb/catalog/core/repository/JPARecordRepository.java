@@ -17,4 +17,7 @@ public interface JPARecordRepository extends JpaRepository<Record, Integer> {
 
     //@Query("SELECT r FROM Record r WHERE r.inStock > ?1")
     List<Record> findByInStockGreaterThan(int inStock);
+
+    //@Query("SELECT r FROM Record r ORDER BY r.price ASC")
+    List<Record> findAllByOrderByPriceAsc();
 }
