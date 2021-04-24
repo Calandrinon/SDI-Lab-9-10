@@ -9,11 +9,15 @@ import ro.ubb.catalog.core.model.Artist;
 public class ArtistConverter extends BaseConverter<Artist, ArtistDto>{
     @Override
     public Artist convertDtoToModel(ArtistDto dto) {
-        return new Artist(dto.getName(), dto.getEstablishmentYear());
+        Artist artist = new Artist(dto.getName(), dto.getEstablishmentYear());
+        artist.setId(dto.getId());
+        return artist;
     }
 
     @Override
     public ArtistDto convertModelToDto(Artist artist) {
-        return new ArtistDto(artist.getName(), artist.getEstablishmentYear());
+        ArtistDto artistDto = new ArtistDto(artist.getName(), artist.getEstablishmentYear());
+        artistDto.setId(artist.getId());
+        return artistDto;
     }
 }
