@@ -1,0 +1,8 @@
+<app-users-list></app-users-list>
+<h2>Update a user</h2>
+<div>
+  <label>Id: <input #userId></label><br>
+  <label>First name: <input #firstName></label><br>
+  <label>Last name: <input #lastName></label><br>
+  <button (click)="updateUser(userId.value, firstName.value, lastName.value)">Update</button>
+</div>

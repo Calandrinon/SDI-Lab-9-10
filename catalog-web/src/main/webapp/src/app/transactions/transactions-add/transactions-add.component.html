@@ -1,0 +1,7 @@
+<h2>Make a transaction</h2>
+<div>
+  <label>User ID: <input #userId></label><br>
+  <label>Record ID: <input #recordId></label><br>
+  <label>Quantity: <input #quantity></label><br>
+  <button (click)="saveTransaction(userId.value, recordId.value, quantity.value)">Add</button>
+</div>

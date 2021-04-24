@@ -15,6 +15,12 @@ import {RecordService} from "./records/shared/record.service";
 import {UserService} from "./users/shared/users.service";
 import {TransactionService} from "./transactions/shared/transaction.service";
 import { RecordsAddComponent } from './records/records-add/records-add.component';
+import { RecordsUpdateComponent } from './records/records-update/records-update.component';
+import { RecordsRemoveComponent } from './records/records-remove/records-remove.component';
+import { UsersAddComponent } from './users/users-add/users-add.component';
+import { UsersRemoveComponent } from './users/users-remove/users-remove.component';
+import { UsersUpdateComponent } from './users/users-update/users-update.component';
+import { TransactionsAddComponent } from './transactions/transactions-add/transactions-add.component';
 
 
 @NgModule({
@@ -27,9 +33,12 @@ import { RecordsAddComponent } from './records/records-add/records-add.component
     TransactionsListComponent,
     UsersListComponent,
     RecordsAddComponent,
-
-
-
+    RecordsUpdateComponent,
+    RecordsRemoveComponent,
+    UsersAddComponent,
+    UsersRemoveComponent,
+    UsersUpdateComponent,
+    TransactionsAddComponent,
   ],
   imports: [
     BrowserModule,

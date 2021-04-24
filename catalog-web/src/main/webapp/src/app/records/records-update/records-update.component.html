@@ -1,10 +1,10 @@
 <app-records-list></app-records-list>
-<h2>Add a new record</h2>
+<h2>Update a record</h2>
 <div>
   <label>Id: <input #recordId></label><br>
   <label>Album name: <input #albumNameInput></label><br>
   <label>Price: <input #priceInput></label><br>
   <label>Stock: <input #stockInput></label><br>
   <label>Record type: <input #typeInput></label><br>
-  <button (click)="saveRecord(recordId.value, albumNameInput.value, priceInput.value, stockInput.value, typeInput.value)">Add</button>
+  <button (click)="updateRecord(recordId.value, albumNameInput.value, priceInput.value, stockInput.value, typeInput.value)">Update</button>
 </div>

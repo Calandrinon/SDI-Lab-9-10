@@ -11,7 +11,7 @@ import {map} from "rxjs/operators";
 @Injectable()
 export class RecordService {
   private recordsUrl = 'http://localhost:8080/api/records';
-  private addUrl = 'http://localhost:8080/api/record';
+  private singleRecordUrl = 'http://localhost:8080/api/record';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -29,13 +29,18 @@ export class RecordService {
   }
 
   saveRecord(record: Record): Observable<Record> {
-    return this.httpClient.post<Record>(this.addUrl, record);
+    return this.httpClient.post<Record>(this.singleRecordUrl, record);
   }
 
-  update(record: Record): Observable<Record> {
-    const url = `${this.recordsUrl}/${record.id}`;
+  updateRecord(record: Record): Observable<Record> {
+    const url = `${this.singleRecordUrl}/${record.id}`;
     return this.httpClient
       .put<Record>(url, record);
   }
 
+  removeRecord(record: Record): Observable<Record> {
+    const url = `${this.singleRecordUrl}/${record.id}`;
+    return this.httpClient
+      .delete<Record>(url);
+  }
 }

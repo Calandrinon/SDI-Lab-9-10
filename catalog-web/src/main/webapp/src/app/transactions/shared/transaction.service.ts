@@ -5,11 +5,14 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 import {Transaction} from "./transaction.model";
+import {User} from "../../users/shared/users.model";
+import {Record} from "../../records/shared/record.model";
 
 
 @Injectable()
 export class TransactionService{
   private transactionsUrl = 'http://localhost:8080/api/transactions';
+  private singleTransactionUrl = 'http://localhost:8080/api/transaction';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -26,10 +29,7 @@ export class TransactionService{
       );
   }
 
-  update(transaction): Observable<Transaction> {
-    const url = `${this.transactionsUrl}/${transaction.id}`;
-    return this.httpClient
-      .put<Transaction>(url, transaction);
+  saveTransaction(transaction: Transaction): Observable<Transaction>{
+    return this.httpClient.post<Transaction>(this.singleTransactionUrl, transaction);
   }
-
 }
