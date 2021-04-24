@@ -15,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({"ro.ubb.catalog.web.controller", "ro.ubb.catalog.web.converter"})
+@ComponentScan({"ro.ubb.catalog.web.controller", "ro.ubb.catalog.core.converter"})
 public class WebConfig {
     @Bean
     public WebMvcConfigurer corsConfigurer() {

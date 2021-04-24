@@ -3,6 +3,7 @@ package ro.ubb.catalog.core.converter;
 import org.springframework.stereotype.Component;
 import ro.ubb.catalog.core.model.Record;
 import ro.ubb.catalog.core.dto.RecordDto;
+import ro.ubb.catalog.core.model.RecordType;
 
 @Component
 public class RecordConverter extends BaseConverter<Record, RecordDto> {
