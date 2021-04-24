@@ -1,0 +1,8 @@
+<app-artists-list></app-artists-list>
+<h2>Update an artist </h2>
+<div>
+  <label>Id: <input #artistId></label><br>
+  <label>Name: <input #artistName></label><br>
+  <label>Establishment year: <input #artistYear></label><br>
+  <button (click)="updateArtist(artistId.value, artistName.value, artistYear.value)">Update</button>
+</div>

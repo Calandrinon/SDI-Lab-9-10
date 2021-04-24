@@ -21,6 +21,11 @@ import { UsersAddComponent } from './users/users-add/users-add.component';
 import { UsersRemoveComponent } from './users/users-remove/users-remove.component';
 import { UsersUpdateComponent } from './users/users-update/users-update.component';
 import { TransactionsAddComponent } from './transactions/transactions-add/transactions-add.component';
+import { ArtistsComponent } from './artists/artists.component';
+import { ArtistsAddComponent } from './artists/artists-add/artists-add.component';
+import { ArtistsUpdateComponent } from './artists/artists-update/artists-update.component';
+import { ArtistsListComponent } from './artists/artists-list/artists-list.component';
+import { ArtistsRemoveComponent } from './artists/artists-remove/artists-remove.component';
 
 
 @NgModule({
@@ -39,6 +44,11 @@ import { TransactionsAddComponent } from './transactions/transactions-add/transa
     UsersRemoveComponent,
     UsersUpdateComponent,
     TransactionsAddComponent,
+    ArtistsComponent,
+    ArtistsAddComponent,
+    ArtistsUpdateComponent,
+    ArtistsListComponent,
+    ArtistsRemoveComponent,
   ],
   imports: [
     BrowserModule,
