@@ -1,10 +1,22 @@
 <app-records-list></app-records-list>
 <h2>Add a new record</h2>
 <div>
-  <label>Id: <input #recordId></label><br>
-  <label>Album name: <input #albumNameInput></label><br>
-  <label>Price: <input #priceInput></label><br>
-  <label>Stock: <input #stockInput></label><br>
-  <label>Record type: <input #typeInput></label><br>
-  <button (click)="saveRecord(recordId.value, albumNameInput.value, priceInput.value, stockInput.value, typeInput.value)">Add</button>
+  <form [formGroup]="formGroup" (ngSubmit)="saveRecord()">
+    <label>Id:</label>
+    <input formControlName="recordId">
+    <br>
+    <label>Album name:</label>
+    <input formControlName="albumName">
+    <br>
+    <label>Price:</label>
+    <input formControlName="price">
+    <br>
+    <label>Stock:</label>
+    <input formControlName="inStock">
+    <br>
+    <label>Record type:</label>
+    <input formControlName="typeOfRecord">
+    <br>
+    <button type="submit" [disabled]="!formGroup.valid">Add</button>
+  </form>
 </div>
