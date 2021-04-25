@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Record, RecordType} from "../shared/record.model";
 import {RecordService} from "../shared/record.service";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-records-add',
@@ -8,10 +9,21 @@ import {RecordService} from "../shared/record.service";
   styleUrls: ['./records-add.component.css']
 })
 export class RecordsAddComponent implements OnInit {
+  formGroup: FormGroup;
 
-  constructor(private recordService: RecordService) { }
+  constructor(private recordService: RecordService,
+              private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.formGroup = this.formBuilder.group({
+      id: '',
+      albumName: '',
+      price: '',
+      inStock: '',
+      typeOfRecord: ''
+    });
+
+    this.formGroup.valueChanges.subscribe(console.log);
   }
 
   saveRecord(id: string, albumName: string, price: string, stock: string, type: string): void {

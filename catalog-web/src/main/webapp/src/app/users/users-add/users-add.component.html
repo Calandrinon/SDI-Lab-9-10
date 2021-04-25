@@ -1,8 +1,34 @@
 <app-users-list></app-users-list>
 <h2>Add a new user</h2>
 <div>
-  <label>Id: <input #userId></label><br>
-  <label>First name: <input #firstName></label><br>
-  <label>Last name: <input #lastName></label><br>
-  <button (click)="saveUser(userId.value, firstName.value, lastName.value)">Add</button>
+  <form (ngSubmit)="saveUser(f)" #f="ngForm">
+    <label>Id: </label>
+    <input name="userId" ngModel required #userId="ngModel">
+    <div style="color:red"
+        *ngIf="userId.errors && (userId.dirty || userId.touched)">
+        <p *ngIf="userId.errors.required">
+            The user ID is required
+        </p>
+    </div>
+    <br>
+    <label>First name:</label>
+    <input name="firstName" ngModel required maxlength="64" #firstName="ngModel">
+    <div style="color:red"
+        *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+        <p *ngIf="firstName.errors.required">
+            The first name is required
+        </p>
+    </div>
+    <br>
+    <label>Last name: </label>
+    <input name="lastName" ngModel required maxlength="64" #lastName="ngModel">
+    <div style="color:red"
+        *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+        <p *ngIf="lastName.errors.required">
+            The last name is required
+        </p>
+    </div>
+    <br>
+    <button type="submit">Add</button>
+  </form>
 </div>

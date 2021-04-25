@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 
+
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { RecordsComponent } from './records/records.component';
@@ -26,6 +27,7 @@ import { ArtistsAddComponent } from './artists/artists-add/artists-add.component
 import { ArtistsUpdateComponent } from './artists/artists-update/artists-update.component';
 import { ArtistsListComponent } from './artists/artists-list/artists-list.component';
 import { ArtistsRemoveComponent } from './artists/artists-remove/artists-remove.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -55,6 +57,7 @@ import { ArtistsRemoveComponent } from './artists/artists-remove/artists-remove.
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [RecordService, UserService, TransactionService],
   bootstrap: [AppComponent]
