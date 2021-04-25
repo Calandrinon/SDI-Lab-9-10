@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+interface AppState {
+  message: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -7,4 +13,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Online Music Store';
+  message: Observable<string>;
+
+  constructor(private store: Store<AppState>) {
+  }
+
+  ngOnInit() {
+    this.message = this.store.select("message");
+  }
+
+  englishMessage() {
+    this.store.dispatch({type: 'ENGLISH'});
+  }
+
+  romanianMessage() {
+    this.store.dispatch({type: 'ROMANIAN'});
+  }
 }

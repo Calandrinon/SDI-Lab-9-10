@@ -1,5 +1,11 @@
 <h1>{{title}}</h1>
 
+<div style="float: right;">
+  <h3>{{message | async }}</h3>
+  <button (click)="englishMessage()">English</button>
+  <button (click)="romanianMessage()">Romanian</button>
+</div>
+
 <nav>
   <a routerLink="/records" routerLinkActive="active">Records</a>
   <a routerLink="/users" routerLinkActive="active">Users</a>

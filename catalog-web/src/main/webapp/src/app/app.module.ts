@@ -3,6 +3,8 @@ import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import {Store, StoreModule} from "@ngrx/store";
+import { simpleReducer } from './simple.reducer';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from "./app-routing.module";
@@ -59,6 +61,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    StoreModule.forRoot({message: simpleReducer}),
   ],
   providers: [RecordService, UserService, TransactionService],
   bootstrap: [AppComponent]
