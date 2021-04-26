@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {Store, StoreModule} from "@ngrx/store";
 import { simpleReducer } from './simple.reducer';
+import { recordReducer } from "./reducers/record.reducer";
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from "./app-routing.module";
@@ -62,6 +63,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     StoreModule.forRoot({message: simpleReducer}),
+    StoreModule.forRoot({records: recordReducer})
   ],
   providers: [RecordService, UserService, TransactionService],
   bootstrap: [AppComponent]
