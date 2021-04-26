@@ -62,8 +62,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({message: simpleReducer}),
-    StoreModule.forRoot({records: recordReducer})
+    StoreModule.forRoot({message: simpleReducer, records: recordReducer}),
   ],
   providers: [RecordService, UserService, TransactionService],
   bootstrap: [AppComponent]

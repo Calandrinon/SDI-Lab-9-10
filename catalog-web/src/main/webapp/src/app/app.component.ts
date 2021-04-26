@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-
-interface AppState {
-  message: string;
-}
+import { AppState } from "./app.state";
 
 @Component({
   selector: 'app-root',
