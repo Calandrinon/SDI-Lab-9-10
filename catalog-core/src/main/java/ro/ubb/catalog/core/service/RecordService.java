@@ -1,11 +1,12 @@
 package ro.ubb.catalog.core.service;
 
+import ro.ubb.catalog.core.exceptions.ValidationException;
 import ro.ubb.catalog.core.model.Record;
 
 import java.util.List;
 
 public interface RecordService {
-    void addRecord(Record record);
+    void addRecord(Record record) throws ValidationException;
 
     void updateRecord(Record record);
 

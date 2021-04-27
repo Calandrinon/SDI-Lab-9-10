@@ -53,7 +53,13 @@ public class RecordController /*implements RecordControllerInterface*/ {
     @RequestMapping(value = "/record", method = RequestMethod.POST)
     public ResponseEntity<RecordDto> add(@RequestBody RecordDto record) throws Exception {
         return CompletableFuture.supplyAsync(() -> {
-            this.recordService.addRecord(this.recordConverter.convertDtoToModel(record));
+            try {
+                this.recordService.addRecord(this.recordConverter.convertDtoToModel(record));
+            } catch (ValidationException validationException) {
+                validationException.printStackTrace();
+                logger.info("RECORD ADD: Cannot add records with duplicate IDs!");
+            }
+
             try {
                 return ResponseEntity.created(new URI("/record/" + record.getId())).body(record);
             } catch (URISyntaxException e) {

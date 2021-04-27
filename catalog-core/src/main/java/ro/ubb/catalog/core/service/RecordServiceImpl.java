@@ -2,10 +2,12 @@ package ro.ubb.catalog.core.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ro.ubb.catalog.core.exceptions.ValidationException;
 import ro.ubb.catalog.core.model.Record;
 import ro.ubb.catalog.core.repository.JPARecordRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RecordServiceImpl implements RecordService{
@@ -13,8 +15,12 @@ public class RecordServiceImpl implements RecordService{
     private JPARecordRepository recordRepository;
 
     @Override
-    public void addRecord(Record record) {
-        this.recordRepository.save(record);
+    public void addRecord(Record record) throws ValidationException {
+        if (recordRepository.findOne(record.getId()).isEmpty()) {
+            this.recordRepository.save(record);
+        } else {
+            throw new ValidationException("The record with the ID " + record.getId() + " already exists in the repository.");
+        }
     }
 
     @Override
