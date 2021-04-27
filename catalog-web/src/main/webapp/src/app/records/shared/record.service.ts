@@ -13,6 +13,7 @@ export class RecordService {
   private recordsUrl = 'http://localhost:8080/api/records';
   private singleRecordUrl = 'http://localhost:8080/api/record';
   private filterUrl = "http://localhost:8080/api/greaterThan";
+  private sortUrl = "http://localhost:8080/api/sortedByPrice";
 
   constructor(private httpClient: HttpClient) {
   }
@@ -47,5 +48,9 @@ export class RecordService {
 
   filterRecordsWithInStockGreaterThan(minimumInStock: number): Observable<Record[]> {
     return this.httpClient.get<Record[]>(this.filterUrl + '/' + minimumInStock);
+  }
+
+  sortRecordsByPrice(): Observable<Record[]> {
+    return this.httpClient.get<Record[]>(this.sortUrl);
   }
 }

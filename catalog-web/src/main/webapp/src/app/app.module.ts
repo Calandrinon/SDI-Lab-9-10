@@ -34,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {EffectsModule} from "@ngrx/effects";
 import {RecordEffects} from "./effects/record.effects";
 import { RecordsFilterComponent } from './records/records-filter/records-filter.component';
+import { RecordsSortComponent } from './records/records-sort/records-sort.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { RecordsFilterComponent } from './records/records-filter/records-filter.
     ArtistsListComponent,
     ArtistsRemoveComponent,
     RecordsFilterComponent,
+    RecordsSortComponent,
   ],
   imports: [
     BrowserModule,

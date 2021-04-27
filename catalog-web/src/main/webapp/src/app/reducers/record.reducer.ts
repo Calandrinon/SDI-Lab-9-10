@@ -66,6 +66,29 @@ export function recordReducer(state: AppState = initialState, action: OnlineMusi
         loading: false
       };
 
+    case OnlineMusicStoreActions.SORT_RECORD:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case OnlineMusicStoreActions.SORT_RECORDS_SUCCESS:
+      console.log("[FROM THE REDUCER] Sort records (success):");
+      console.log(action.payload['records']);
+      return {
+        ...state,
+        areTheRecordsLoaded: true,
+        loading: false,
+        records: action.payload['records']
+      };
+
+    case OnlineMusicStoreActions.SORT_RECORDS_FAILURE:
+      return {
+        ...state,
+        areTheRecordsLoaded: false,
+        loading: false
+      };
+
     default:
       return state;
   }

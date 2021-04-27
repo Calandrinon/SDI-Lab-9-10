@@ -14,6 +14,7 @@ import {ArtistsComponent} from "./artists/artists.component";
 import {ArtistsUpdateComponent} from "./artists/artists-update/artists-update.component";
 import {ArtistsRemoveComponent} from "./artists/artists-remove/artists-remove.component";
 import {RecordsFilterComponent} from "./records/records-filter/records-filter.component";
+import {RecordsSortComponent} from "./records/records-sort/records-sort.component";
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'records-update', component: RecordsUpdateComponent},
   {path: 'records-remove', component: RecordsRemoveComponent},
   {path: 'records-filter', component: RecordsFilterComponent},
+  {path: 'records-sort', component: RecordsSortComponent},
   {path: 'users-add', component: UsersAddComponent},
   {path: 'users-update', component: UsersUpdateComponent},
   {path: 'users-remove', component: UsersRemoveComponent},
