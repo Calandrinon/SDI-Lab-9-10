@@ -4,6 +4,14 @@ export class Record {
   albumName: string;
   inStock: number;
   typeOfRecord: RecordType;
+
+  constructor(id, price, albumName, inStock, typeOfRecord) {
+    this.id = id;
+    this.price = price;
+    this.albumName = albumName;
+    this.inStock = inStock;
+    this.typeOfRecord = typeOfRecord;
+  }
 }
 
 

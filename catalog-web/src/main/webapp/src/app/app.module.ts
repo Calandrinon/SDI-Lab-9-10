@@ -31,6 +31,8 @@ import { ArtistsUpdateComponent } from './artists/artists-update/artists-update.
 import { ArtistsListComponent } from './artists/artists-list/artists-list.component';
 import { ArtistsRemoveComponent } from './artists/artists-remove/artists-remove.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {EffectsModule} from "@ngrx/effects";
+import {RecordEffects} from "./effects/record.effects";
 
 
 @NgModule({
@@ -62,7 +64,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({message: simpleReducer, records: recordReducer}),
+    StoreModule.forRoot({/*message: simpleReducer, */records: recordReducer}),
+    EffectsModule.forRoot([RecordEffects])
   ],
   providers: [RecordService, UserService, TransactionService],
   bootstrap: [AppComponent]

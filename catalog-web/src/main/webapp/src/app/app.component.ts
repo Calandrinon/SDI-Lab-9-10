@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import {from, interval, Observable} from 'rxjs';
 import { AppState } from "./app.state";
+import {exhaustMap, flatMap, map, mergeMap, take} from "rxjs/operators";
+import {LoadRecords} from "./actions/onlinemusicstore.actions";
 
 @Component({
   selector: 'app-root',
@@ -10,15 +12,18 @@ import { AppState } from "./app.state";
 })
 export class AppComponent {
   title = 'Online Music Store';
-  message: Observable<string>;
+  //message: Observable<string>;
 
   constructor(private store: Store<AppState>) {
   }
 
   ngOnInit() {
-    this.message = this.store.select("message");
+    console.log("AppComponent's ngOnInit is running...");
+    //this.message = this.store.select("message");
+    this.store.dispatch(new LoadRecords());
   }
 
+  /**
   englishMessage() {
     this.store.dispatch({type: 'ENGLISH'});
   }
@@ -26,4 +31,5 @@ export class AppComponent {
   romanianMessage() {
     this.store.dispatch({type: 'ROMANIAN'});
   }
+  **/
 }

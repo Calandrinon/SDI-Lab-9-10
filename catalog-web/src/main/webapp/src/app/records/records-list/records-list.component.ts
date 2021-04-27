@@ -14,20 +14,14 @@ import { AppState } from "../../app.state";
 export class RecordsListComponent implements OnInit {
   records: Record[];
 
-  constructor(private recordService: RecordService,
-              private store: Store<AppState>) {
-    this.recordService.getRecords().subscribe(records => {
-      console.log("From the constructor of RecordsListComponent:");
-      console.log(records['records']);
-      this.records = records['records'];
-    });
-  }
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    console.log("selecting the data from the store");
+    console.log("Selecting the data from the store which was fetched through an effect with the RecordService .getRecords() method:");
     this.store.select('records').subscribe(records => {
       console.log("From the ngOnInit of RecordsListComponent:");
-      console.log(records);
+      console.log(records['records']);
+      this.records = records['records'];
     });
   }
 
