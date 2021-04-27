@@ -42,6 +42,30 @@ export function recordReducer(state: AppState = initialState, action: OnlineMusi
         ...state,
         records: [...state.records, action.payload]
       };
+
+    case OnlineMusicStoreActions.FILTER_RECORD:
+      return {
+        ...state,
+        loading: false,
+      };
+
+    case OnlineMusicStoreActions.FILTER_RECORDS_SUCCESS:
+      console.log("[FROM THE REDUCER] Filter records (success):");
+      console.log(action.payload['records']);
+      return {
+        ...state,
+        areTheRecordsLoaded: true,
+        loading: false,
+        records: action.payload['records']
+      };
+
+    case OnlineMusicStoreActions.FILTER_RECORDS_FAILURE:
+      return {
+        ...state,
+        areTheRecordsLoaded: false,
+        loading: false
+      };
+
     default:
       return state;
   }

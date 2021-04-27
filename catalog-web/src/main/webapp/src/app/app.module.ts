@@ -33,6 +33,7 @@ import { ArtistsRemoveComponent } from './artists/artists-remove/artists-remove.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {EffectsModule} from "@ngrx/effects";
 import {RecordEffects} from "./effects/record.effects";
+import { RecordsFilterComponent } from './records/records-filter/records-filter.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import {RecordEffects} from "./effects/record.effects";
     ArtistsUpdateComponent,
     ArtistsListComponent,
     ArtistsRemoveComponent,
+    RecordsFilterComponent,
   ],
   imports: [
     BrowserModule,

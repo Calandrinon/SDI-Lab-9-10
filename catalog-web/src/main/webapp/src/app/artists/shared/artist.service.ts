@@ -9,6 +9,7 @@ import {Observable} from "rxjs";
 export class ArtistService {
   private artistsUrl = 'http://localhost:8080/api/artists';
   private singleArtistUrl = 'http://localhost:8080/api/artist';
+  private filterUrl = "http://localhost:8080/api/maximumEstablishmentYear";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -26,5 +27,9 @@ export class ArtistService {
 
   removeArtist(artist: Artist): Observable<Artist> {
     return this.httpClient.delete<Artist>(this.singleArtistUrl + "/" + artist.id);
+  }
+
+  filterArtistsByAge(establishmentYear: number): Observable<Artist[]> {
+    return this.httpClient.get<Artist[]>(this.filterUrl + "/" + establishmentYear);
   }
 }

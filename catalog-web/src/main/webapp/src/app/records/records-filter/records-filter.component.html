@@ -1,0 +1,17 @@
+<h2>Filter records</h2>
+<div>
+  <label>Minimum stock instances: <input #minimumInStock></label><br>
+  <button (click)="filterByInStockGreaterThan(minimumInStock.value)">Filter</button>
+</div>
+
+<ng-container *ngIf="filterButtonPressed === false; else elseif">
+  <app-records-list></app-records-list>
+</ng-container>
+<ng-template #elseif>
+  <h2>Records: </h2>
+  <ol>
+    <li *ngFor="let record of records">
+      Id: {{record.id}}; Price: {{record.price}}; Album name: {{record.albumName}}; Stock: {{record.inStock}}; Record type: {{record.typeOfRecord}};
+    </li>
+  </ol>
+</ng-template>

@@ -11,6 +11,9 @@ export const LOAD_RECORDS_FAILURE = "[RECORD] Load: failed";
 export const ADD_RECORD = "[RECORD] Add";
 export const UPDATE_RECORD = "[RECORD] Update";
 export const REMOVE_RECORD = "[RECORD] Remove";
+export const FILTER_RECORD = "[RECORD] Filter";
+export const FILTER_RECORDS_SUCCESS = "[RECORD] Filter: success";
+export const FILTER_RECORDS_FAILURE = "[RECORD] Filter: failure";
 
 
 export class LoadRecords implements Action {
@@ -54,6 +57,28 @@ export class UpdateRecord implements Action {
   }
 }
 
+export class FilterRecordsByStock implements Action {
+  readonly type = FILTER_RECORD;
+
+  constructor(public payload: number) {
+  }
+}
+
+export class FilterRecordsByStockSuccess implements Action {
+  readonly type = FILTER_RECORDS_SUCCESS;
+
+  constructor(public payload: Record[]) {
+  }
+}
+
+export class FilterRecordsByStockFailure implements Action {
+  readonly type = FILTER_RECORDS_FAILURE;
+
+  constructor(public payload: Record[]) {
+  }
+}
 
 
-export type Actions = LoadRecords | LoadRecordsSuccess | LoadRecordsFailure | AddRecord | UpdateRecord | RemoveRecord;
+export type Actions = LoadRecords | LoadRecordsSuccess | LoadRecordsFailure | AddRecord | UpdateRecord | RemoveRecord
+  | FilterRecordsByStock | FilterRecordsByStockSuccess | FilterRecordsByStockFailure;
+

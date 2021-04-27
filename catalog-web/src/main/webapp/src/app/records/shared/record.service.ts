@@ -12,6 +12,7 @@ import {map} from "rxjs/operators";
 export class RecordService {
   private recordsUrl = 'http://localhost:8080/api/records';
   private singleRecordUrl = 'http://localhost:8080/api/record';
+  private filterUrl = "http://localhost:8080/api/greaterThan";
 
   constructor(private httpClient: HttpClient) {
   }
@@ -42,5 +43,9 @@ export class RecordService {
     const url = `${this.singleRecordUrl}/${record.id}`;
     return this.httpClient
       .delete<Record>(url);
+  }
+
+  filterRecordsWithInStockGreaterThan(minimumInStock: number): Observable<Record[]> {
+    return this.httpClient.get<Record[]>(this.filterUrl + '/' + minimumInStock);
   }
 }
