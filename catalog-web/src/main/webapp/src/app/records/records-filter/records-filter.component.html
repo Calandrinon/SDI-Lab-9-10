@@ -9,9 +9,14 @@
 </ng-container>
 <ng-template #elseif>
   <h2>Records: </h2>
-  <ol>
-    <li *ngFor="let record of records">
-      Id: {{record.id}}; Price: {{record.price}}; Album name: {{record.albumName}}; Stock: {{record.inStock}}; Record type: {{record.typeOfRecord}};
-    </li>
-  </ol>
+  <ng-container *ngIf="records.length > 0; else elseCaseForEmptyList">
+    <ol>
+      <li *ngFor="let record of records">
+        Id: {{record.id}}; Price: {{record.price}}; Album name: {{record.albumName}}; Stock: {{record.inStock}}; Record type: {{record.typeOfRecord}};
+      </li>
+    </ol>
+  </ng-container>
+  <ng-template #elseCaseForEmptyList>
+    <h2 style="color: red;">There is no record with more than {{minimumInStock.value}} instances in stock!</h2>
+  </ng-template>
 </ng-template>
